@@ -137,4 +137,6 @@ app.post("/delete", function (req, res) {
 });
 
 const port = 3000;
-app.listen(port);
+app.listen(port, ()=>{
+  console.log(`running succesfully on ${port}`);
+});
