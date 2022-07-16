@@ -7,7 +7,7 @@ const app = express();
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static("todo/public"));
 
 // Connect ot mongoDB DataBase
 const password = "a1s2h3u4";
@@ -66,7 +66,7 @@ app.get("/", function (req, res, next) {
 
 // Handle custom urls get request
 
-app.get("/:customListName", function (req, res) {
+app.get("todo/:customListName", function (req, res) {
   const customListName = _.capitalize(req.params.customListName);
   List.findOne({ name: customListName }, function (err, foundList) {
     if (!err) {
@@ -91,7 +91,7 @@ app.get("/:customListName", function (req, res) {
 
 // Add new task to the list
 
-app.post("/", function (req, res) {
+app.post("todo/", function (req, res) {
   const itemName = req.body.newItem;
   const listName = req.body.list.trim();
   const newItem = new Item({
@@ -113,7 +113,7 @@ app.post("/", function (req, res) {
 
 // Delete task from the list
 
-app.post("/delete", function (req, res) {
+app.post("todo/delete", function (req, res) {
   const checkedItemId = req.body.checkbox.trim();
   const listName = req.body.listName.trim();
 
