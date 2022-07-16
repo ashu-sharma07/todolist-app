@@ -136,7 +136,7 @@ app.post("/delete", function (req, res) {
   }
 });
 
-const domain = "127.0.0.1"
+const domain = "localhost"
 const port = 3001;
 app.listen(port,domain,()=>{
     console.log(`Application running on ${domain}:${port}`)
