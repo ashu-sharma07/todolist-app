@@ -7,7 +7,7 @@
 <div class="box">
   <% newListItems.forEach(item => { %>
   <div class="item">
-    <form action="todo/delete" method="post">
+    <form action="/delete" method="post">
       <input
         type="checkbox"
         name="checkbox"
@@ -21,7 +21,7 @@
   </div>
   <% });%>
 
-  <form class="item" action="todo/" method="post">
+  <form class="item" action="/" method="post">
     <input
       type="text"
       name="newItem"
